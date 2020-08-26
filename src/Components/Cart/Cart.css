@@ -1,0 +1,7 @@
+.cart {
+  margin: 8px;
+  min-height: 220px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 4px 4px 8px gray;
+}

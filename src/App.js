@@ -1,24 +1,71 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Courses from './Components/Courses/Course';
+import fakeData from './fakeData/onlineCourses';
+import { useState } from 'react';
+import Cart from './Components/Cart/Cart';
 
 function App() {
+  const first10 = fakeData.slice(0, 10);
+  const [courses, setCourses] = useState(first10);
+  const [cart, setCart] = useState([]);
+
+  const handleEnrollCourse = (course) => {
+    const newCart = [...cart, course];
+    setCart(newCart);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {/* NAVBAR USING BOOTSTRAP */}
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary rounded">
+          <a className="navbar-brand" href=" ">
+            Logo
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarText">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href=" ">
+                  Home <span className="sr-only">(current)</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href=" ">
+                  Features
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href=" ">
+                  Pricing
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div className="d-flex mt-5">
+        <div className="course-container">
+          {courses.map((course) => (
+            <Courses
+              course={course}
+              key={course.id}
+              handleEnrollCourse={handleEnrollCourse}
+            ></Courses>
+          ))}
+        </div>
+        <div>{<Cart cart={cart}></Cart>}</div>
+      </div>
     </div>
   );
 }
