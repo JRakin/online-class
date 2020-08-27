@@ -6,6 +6,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const Courses = (props) => {
   const course = props.course;
   return (
+    // CARD ITEMS
     <div className="card m-3">
       <img
         className="card-img-top p-3 rounded"

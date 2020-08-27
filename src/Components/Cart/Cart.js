@@ -2,6 +2,7 @@ import React from 'react';
 import './Cart.css';
 
 const Cart = (props) => {
+  // CALCULATING TOTAL PRICE BY REDUCE METHOD
   const totalPrice = props.cart.reduce(
     (total, course) => (total += course.price),
     0

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Cart from './Components/Cart/Cart';
 
 function App() {
+  // LOADING DATA FROM FAKE DATA FOLDER
   const first10 = fakeData.slice(0, 10);
   const [courses, setCourses] = useState(first10);
   const [cart, setCart] = useState([]);
@@ -54,6 +55,7 @@ function App() {
           </div>
         </nav>
       </div>
+      {/* COURSE CONTAINER */}
       <div className="d-flex mt-5">
         <div className="course-container">
           {courses.map((course) => (
